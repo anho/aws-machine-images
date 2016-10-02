@@ -1,0 +1,7 @@
+sudo: required
+
+services
+  - docker
+
+script:
+  - docker run -w /packer -v $(pwd):/packer hashicorp/packer:light build -var aws_access_key=$AWS_ACCESS_KEY_ID -var aws_secret_key=$AWS_SECRET_ACCESS_KEY images.json
